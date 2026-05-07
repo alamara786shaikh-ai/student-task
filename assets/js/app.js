@@ -127,6 +127,25 @@ function onStdEdit (ele) {
 
 function onStdSubmit(eve) {
     eve.preventDefault();
+
+    // validation added
+  if (
+    fnameControl.value.trim() === '' ||
+    lnameControl.value.trim() === '' ||
+    emailControl.value.trim() === '' ||
+    contactControl.value.trim() === ''
+  ) {
+
+    Swal.fire({
+      icon: 'error',
+      title: 'All fields are required !!!',
+      text: 'Please fill all input fields.',
+      timer: 3000
+    });
+     return;
+  }
+
+
     let NEW_STD = {
         fname: fnameControl.value,
         lname: lnameControl.value,
